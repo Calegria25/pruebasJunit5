@@ -40,7 +40,7 @@ pipeline {
             script {
                 def sonarqubeScannerHome = tool name: 'sonar', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
                 withCredentials([string(credentialsId: 'sonar', variable: 'sonarLogin')]) {
-                    sh "${sonarqubeScannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://http://172.18.0.1:9001 -Dsonar.login=${sonarLogin} -Dsonar.projectName=gs-gradle -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=GS -Dsonar.sources=src/main/java/cl/awakelab/junitapp -Dsonar.tests=src/test/java/cl/awakelab/junitapp -Dsonar.language=java -Dsonar.java.binaries=."
+                    sh "${sonarqubeScannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://172.18.0.1:9001 -Dsonar.login=${sonarLogin} -Dsonar.projectName=gs-gradle -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=GS -Dsonar.sources=src/main/java/cl/awakelab/junitapp -Dsonar.tests=src/test/java/cl/awakelab/junitapp -Dsonar.language=java -Dsonar.java.binaries=."
                 }
             }
         }
